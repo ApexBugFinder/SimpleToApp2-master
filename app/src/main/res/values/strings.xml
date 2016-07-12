@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">TODO APP</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="btnAddItem">Add Item</string>
+    <string name="EnterNewItem">Enter new item...</string>
+    <string name="btnUpdate">Update</string>
+    <string name="btnCancel">Cancel</string>
+    <string name="btnDelete">Delete</string>
+    <string name="title_activity_main2">TODO APP</string>
+    <string name="action_settings">Settings</string>
+    <string name="enterToDoListTitle">Enter ToDoList Title</string>
+    <string name="priority_stirng">Priority</string>
+    <string name="description">Description:</string>
+    <string name="dueDate">Due Date:</string>
+    <string name="btnSetDueDate">Set Due Date</string>
+    <string-array name="priority">
+        <item>LOW</item>
+        <item>MED</item>
+        <item>HIGH</item>
+    </string-array>
+</resources>
