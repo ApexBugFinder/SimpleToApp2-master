@@ -39,6 +39,15 @@ public class MyToDoListRecyclerViewAdapter extends RecyclerView.Adapter<MyToDoLi
     @Override
     public void onBindViewHolder(final ViewHolder holder, int position) {
         holder.mItem = mValues.get(position);
+//        if(holder.mItem.getToDoPriority()=="LOW"){
+//            holder.mContentView.setBackgroundColor(Integer.valueOf(R.color.colorLow));
+//        }
+//        else if(holder.mItem.getToDoPriority()=="MED"){
+//            holder.mContentView.setBackgroundColor(Integer.valueOf(R.color.colorMed));
+//        }
+//        else if(holder.mItem.getToDoPriority()=="HIGH"){
+//            holder.mContentView.set(Integer.valueOf(R.color.colorHigh));
+//        }
         holder.mIdView.setText(String.valueOf(mValues.get(position).id));
         holder.mContentView.setText(mValues.get(position).name);
 
@@ -71,6 +80,7 @@ public class MyToDoListRecyclerViewAdapter extends RecyclerView.Adapter<MyToDoLi
             mView = view;
             mIdView = (TextView) view.findViewById(R.id.id);
             mContentView = (TextView) view.findViewById(R.id.content);
+
         }
 
         @Override

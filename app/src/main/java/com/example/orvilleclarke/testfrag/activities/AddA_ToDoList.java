@@ -36,7 +36,8 @@ public class AddA_ToDoList extends AppCompatActivity {
 
                 ToDoList newToDoList = new ToDoList();
                 newToDoList.Create(fieldvalue_toDoListTitle, new Date(),getApplicationContext());
-                ToDoList.getAllAvailableTodoLists();
+                ToDoList ab = new ToDoList();
+                ab.ReadAllFromDatabase(getApplicationContext());
                 Intent backToMain = new Intent(AddA_ToDoList.this, Main2Activity.class);
                 startActivity(backToMain);
                 finish();

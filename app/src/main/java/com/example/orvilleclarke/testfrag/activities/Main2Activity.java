@@ -29,6 +29,7 @@ implements TodoListsFragment.OnListTodoListFragmentInteractionListener  {
 
         purgeAndInitialSeed();
         SeedSomeData();
+        testdb();
         initializeToDoListsGlobalVariables();
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
 //
@@ -109,6 +110,7 @@ implements TodoListsFragment.OnListTodoListFragmentInteractionListener  {
 //        SQLiteDatabase db = mDbHelper.getWritableDatabase();
         ToDoList ab = new ToDoList();
         ab.ReadAllFromDatabase(getApplicationContext());
+
         ToDoList.getAllAvailableTodoLists();
 
     }
@@ -138,9 +140,13 @@ implements TodoListsFragment.OnListTodoListFragmentInteractionListener  {
         a.setToDoDueDate(new Date());
         a.setDescription("updated");
         a.setCompleted(true);
+
         a.setToDoCompleted(new Date());
         a.setId(newid2);
         c.UpdateInDatabase(a,getApplicationContext());
+        ToDoListContentsOfEachList.ToDoListContent ab = new ToDoListContentsOfEachList.ToDoListContent();
+        ab.ReadAllFromDatabase(getApplicationContext());
+        ab.ReadToDoItemsFromDatabase(Long.valueOf(3), getApplicationContext());
 
         c.DeleteInDatabase(newid,getApplicationContext());
 

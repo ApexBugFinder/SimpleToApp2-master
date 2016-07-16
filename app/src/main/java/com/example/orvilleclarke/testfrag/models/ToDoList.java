@@ -6,9 +6,12 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteDatabaseCorruptException;
 import android.database.sqlite.SQLiteReadOnlyDatabaseException;
+import android.icu.text.DateFormat;
+import android.icu.text.SimpleDateFormat;
 
 import com.example.orvilleclarke.testfrag.utils.Helpers;
 
+import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -181,17 +184,25 @@ public class ToDoList {
             // Read items into the global variable
 
             c.moveToFirst();
+            DateFormat formatter;
 
-            while (c.moveToNext()) {
+            formatter = new SimpleDateFormat("dd-MM-yyyy");
+            try {
+                while (c.moveToNext()) {
 
-                ToDoList toDoListInDb = new ToDoList();
-                toDoListInDb.id = c.getLong(c.getColumnIndexOrThrow(TodoList.COLUMN_NAME_TODOLIST_ID));
-                toDoListInDb.title = c.getString(c.getColumnIndexOrThrow(TodoList.COLUMN_NAME_TODOLIST_TITLE));
-                toDoListInDb.dateCreated = new Date(c.getLong(c.getColumnIndexOrThrow(TodoList.COLUMN_NAME_TODOLIST_DATE_CREATED)));
+                    ToDoList toDoListInDb = new ToDoList();
+                    toDoListInDb.id = c.getLong(c.getColumnIndexOrThrow(TodoList.COLUMN_NAME_TODOLIST_ID));
+                    toDoListInDb.title = c.getString(c.getColumnIndexOrThrow(TodoList.COLUMN_NAME_TODOLIST_TITLE));
+                    toDoListInDb.dateCreated = formatter.parse(c.getString(c.getColumnIndexOrThrow(TodoList.COLUMN_NAME_TODOLIST_DATE_CREATED)));
 
-                allAvailableTodoLists.add(toDoListInDb);
+                    allAvailableTodoLists.add(toDoListInDb);
 
 
+                }
+            }catch(ParseException e){
+                e.printStackTrace();
+            }catch (Exception e){
+                e.printStackTrace();
             }
         }
             return read;

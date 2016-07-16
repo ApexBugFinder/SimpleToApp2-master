@@ -8,6 +8,8 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteDatabaseCorruptException;
 import android.database.sqlite.SQLiteException;
 import android.database.sqlite.SQLiteReadOnlyDatabaseException;
+import android.icu.text.DateFormat;
+import android.icu.text.SimpleDateFormat;
 
 import com.example.orvilleclarke.testfrag.utils.TodoReaderContract;
 
@@ -27,6 +29,7 @@ public class ToDoItem {
     public Date ToDoCompleted;
     public Date ToDoDueDate;
     public boolean Completed = false;
+    public boolean DueDateSet = false;
 
 
 
@@ -62,6 +65,9 @@ public class ToDoItem {
         return Completed;
     }
 
+    public boolean isDueDateSet() { return DueDateSet; }
+
+
     //SETTERS
 
     public void setId(long id) {
@@ -93,6 +99,8 @@ public class ToDoItem {
     public void setCompleted(boolean completed) {
         Completed = completed;
     }
+
+    public void setDueDateSet(boolean dueDateSet) { DueDateSet = dueDateSet;    }
 
     // Empty constructor
     public ToDoItem(){
@@ -135,6 +143,9 @@ public class ToDoItem {
             values.put(TodoReaderContract.TodoItem.COLUMN_NAME_CREATED_ON_DATE, createdOnDate.toString());
             values.put(TodoReaderContract.TodoItem.COLUMN_NAME_TODOITEM_PRIORITY, priority);
             values.put(TodoReaderContract.TodoItem.COLUMN_NAME_COMPLETED_BOOL, f);
+            values.put(TodoReaderContract.TodoItem.COLUMN_NAME_IS_TODO_DUEDATE_SET,f );
+            values.put(TodoReaderContract.TodoItem.COLUMN_NAME_TODCOMPLETED_ONDATE, new Date().toString());
+            values.put(TodoReaderContract.TodoItem.COLUMN_NAME_TODDUE_ONDATE, new Date().toString());
 
             id = db.insert(TodoReaderContract.TodoItem.TABLE_NAME, null, values);
 
@@ -170,20 +181,18 @@ public class ToDoItem {
             // Create a new map of values where the columnn names are keys
             ContentValues values = new ContentValues();
 //            values.put(TodoReaderContract.TodoItem.COLUMN_NAME_TODOITEM_ID, "");
-            if(newTodo.getName()!=null)
-            values.put(TodoReaderContract.TodoItem.COLUMN_NAME_TODOITEM_NAME, newTodo.name);
-            if(newTodo.getDescription()!=null)
-            values.put(TodoReaderContract.TodoItem.COLUMN_NAME_TODOITEM_DESCRIP, newTodo.description);
-            if(newTodo.getCreatedOnDate()!=null)
-            values.put(TodoReaderContract.TodoItem.COLUMN_NAME_CREATED_ON_DATE, newTodo.CreatedOnDate.toString());
-            if(newTodo.getToDoPriority()!= null)
-            values.put(TodoReaderContract.TodoItem.COLUMN_NAME_TODOITEM_PRIORITY, newTodo.getToDoPriority());
-            if(newTodo.getToDoDueDate()!= null)
-            values.put(TodoReaderContract.TodoItem.COLUMN_NAME_TODDUE_ONDATE, newTodo.getToDoDueDate().toString());
-
+            if (newTodo.getName() != null) values.put(TodoReaderContract.TodoItem.COLUMN_NAME_TODOITEM_NAME, newTodo.name);
+            if (newTodo.getDescription() != null) values.put(TodoReaderContract.TodoItem.COLUMN_NAME_TODOITEM_DESCRIP, newTodo.description);
+            if (newTodo.getCreatedOnDate() != null) values.put(TodoReaderContract.TodoItem.COLUMN_NAME_CREATED_ON_DATE, newTodo.CreatedOnDate.toString());
+            if (newTodo.getToDoPriority() != null)  values.put(TodoReaderContract.TodoItem.COLUMN_NAME_TODOITEM_PRIORITY, newTodo.getToDoPriority());
+            if (newTodo.getToDoDueDate() != null)  values.put(TodoReaderContract.TodoItem.COLUMN_NAME_TODDUE_ONDATE, newTodo.getToDoDueDate().toString());
+            if(newTodo.getToDoCompleted() != null) values.put(TodoReaderContract.TodoItem.COLUMN_NAME_TODCOMPLETED_ONDATE, newTodo.getToDoCompleted().toString());
+            values.put(TodoReaderContract.TodoItem.COLUMN_NAME_IS_TODO_DUEDATE_SET, newTodo.isDueDateSet());
             values.put(TodoReaderContract.TodoItem.COLUMN_NAME_COMPLETED_BOOL, newTodo.Completed);
 
             id = db.insert(TodoReaderContract.TodoItem.TABLE_NAME, null, values);
+        }catch(NullPointerException e){
+            e.printStackTrace();
 
         } catch (SQLiteDatabaseCorruptException e) {
             e.printStackTrace();
@@ -206,6 +215,9 @@ public class ToDoItem {
 
 
         ToDoItem foundInDb = new ToDoItem();
+        DateFormat formatter;
+
+        formatter = new SimpleDateFormat("dd-MM-yyyy");
         TodoReaderContract.TodoItem.TodoItemReaderDbHelper mDbHelper = new TodoReaderContract.TodoItem.TodoItemReaderDbHelper(context);
         SQLiteDatabase db  = mDbHelper.getReadableDatabase();
         String sid =String.valueOf(todoitemid);
@@ -217,7 +229,9 @@ public class ToDoItem {
                     TodoReaderContract.TodoItem.COLUMN_NAME_TODOITEM_PRIORITY,
                     TodoReaderContract.TodoItem.COLUMN_NAME_TODDUE_ONDATE,
                     TodoReaderContract.TodoItem.COLUMN_NAME_TODCOMPLETED_ONDATE,
-                    TodoReaderContract.TodoItem.COLUMN_NAME_COMPLETED_BOOL
+                    TodoReaderContract.TodoItem.COLUMN_NAME_COMPLETED_BOOL,
+                    TodoReaderContract.TodoItem.COLUMN_NAME_IS_TODO_DUEDATE_SET,
+                    TodoReaderContract.TodoItem.COLUMN_NAME_CREATED_ON_DATE
             };
             String selection =new String (TodoReaderContract.TodoItem.COLUMN_NAME_TODOITEM_ID + "=?");
             String [] selectionArg = new String [] {
@@ -234,11 +248,16 @@ public class ToDoItem {
 
             c.moveToFirst();
 
+            android.icu.util.Calendar ca = android.icu.util.Calendar.getInstance();
+
+
             foundInDb.setId(c.getLong(c.getColumnIndexOrThrow(TodoReaderContract.TodoItem.COLUMN_NAME_TODOITEM_ID)));
             foundInDb.setName(c.getString(c.getColumnIndexOrThrow(TodoReaderContract.TodoItem.COLUMN_NAME_TODOITEM_NAME)));
             foundInDb.setDescription(c.getString(c.getColumnIndexOrThrow(TodoReaderContract.TodoItem.COLUMN_NAME_TODOITEM_DESCRIP)));
             foundInDb.setToDoPriority(c.getString(c.getColumnIndexOrThrow(TodoReaderContract.TodoItem.COLUMN_NAME_TODOITEM_PRIORITY)));
-            foundInDb.setToDoDueDate(new Date(c.getLong(c.getColumnIndexOrThrow(TodoReaderContract.TodoItem.COLUMN_NAME_TODDUE_ONDATE))));
+
+            foundInDb.setToDoDueDate(new Date (c.getLong(c.getColumnIndexOrThrow(TodoReaderContract.TodoItem.COLUMN_NAME_TODDUE_ONDATE))));
+            foundInDb.setCreatedOnDate(new Date(c.getLong(c.getColumnIndexOrThrow(TodoReaderContract.TodoItem.COLUMN_NAME_CREATED_ON_DATE))));
             foundInDb.setToDoCompleted(new Date(c.getLong(c.getColumnIndexOrThrow(TodoReaderContract.TodoItem.COLUMN_NAME_TODCOMPLETED_ONDATE))));
             foundInDb.setCompleted (Boolean.parseBoolean(
                     c.getString(
@@ -289,12 +308,17 @@ public class ToDoItem {
 
         String selection = new String(TodoReaderContract.TodoItem.COLUMN_NAME_TODOITEM_ID + "=?");
         String [] selectionArgs = {String.valueOf(updatedTodoItem.id)};
-        int count = db.update(TodoReaderContract.TodoItem.TABLE_NAME,
-                values,
-                selection,
-                selectionArgs);
-        if(count>0){
-            saved = true;
+        try {
+            int count = db.update(TodoReaderContract.TodoItem.TABLE_NAME,
+                    values,
+                    selection,
+                    selectionArgs);
+            if(count>0){
+                saved = true;
+            }
+
+        }catch (Exception e){
+            e.printStackTrace();
         }
 
 
