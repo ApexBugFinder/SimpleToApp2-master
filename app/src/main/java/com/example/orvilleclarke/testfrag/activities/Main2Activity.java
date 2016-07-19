@@ -28,8 +28,8 @@ implements TodoListsFragment.OnListTodoListFragmentInteractionListener  {
         setSupportActionBar(toolbar);
 
 
-        purgeAndInitialSeed();
-        SeedSomeData();
+//        purgeAndInitialSeed();
+//        SeedSomeData();
 //        testdb();
         initializeToDoListsGlobalVariables();
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);

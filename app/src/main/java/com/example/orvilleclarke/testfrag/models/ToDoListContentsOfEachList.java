@@ -183,7 +183,8 @@ public static class ToDoListContent{
         TodoReaderContract.TodoListItems.TodoListItemsReaderDbHelper mDbHelper = new TodoReaderContract.TodoListItems.TodoListItemsReaderDbHelper(context);
         SQLiteDatabase db = mDbHelper.getReadableDatabase();
 
-
+        ToDoListContentsOfEachList.ListContains.clear();
+        ToDoListContentsOfEachList.WhatToDisplay.clear();
         // Define a projection that specifies which colums from the database
         // you will actually use after this query.
 
@@ -211,13 +212,13 @@ public static class ToDoListContent{
         if (c.getCount() > 0) {
             read = true;
 
-            ToDoListContentsOfEachList.ListContains.clear();
-            ToDoListContentsOfEachList.WhatToDisplay.clear();
+//            ToDoListContentsOfEachList.ListContains.clear();
+//            ToDoListContentsOfEachList.WhatToDisplay.clear();
             // Read items into the global variable
 
             c.moveToFirst();
 
-            while (c.moveToNext()) {
+            do {
 
                 ToDoListContent toDoListContentInDb = new ToDoListContent();
                 toDoListContentInDb.setId(c.getLong(c.getColumnIndexOrThrow(TodoReaderContract.TodoListItems.COLUMN_NAME_TODOLISTITEM_ID)));
@@ -226,7 +227,7 @@ public static class ToDoListContent{
 
                 ToDoListContentsOfEachList.ListContains.add(toDoListContentInDb);
 
-            }
+            }while(c.moveToNext());
 //            db.close();
             TodoReaderContract.TodoItem.TodoItemReaderDbHelper mDbHelper2 = new TodoReaderContract.TodoItem.TodoItemReaderDbHelper(context);
             SQLiteDatabase db2 = mDbHelper2.getWritableDatabase();
