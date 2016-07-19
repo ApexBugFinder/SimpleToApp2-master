@@ -21,8 +21,7 @@
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cae4534d-9631-4141-b6a1-69a20b0e64ae" name="Default" comment="Edited Readme file">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
+    <list default="true" id="cae4534d-9631-4141-b6a1-69a20b0e64ae" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <list id="ac007569-95df-4efa-a7cc-11b5e56bee86" name="New changelist" comment="" />
@@ -2985,7 +2984,13 @@
       <option name="project" value="LOCAL" />
       <updated>1468940330025</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Edited Readme file">
+      <created>1468940656517</created>
+      <option name="number" value="00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1468940656517</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TodoView">
@@ -3048,7 +3053,8 @@
     <MESSAGE value="Fixed Date format issue&#10;Added a few more ui elements&#10;Home button,&#10;You can see the the priority of the todo item now&#10;change of todo priority and the background color of a layout changes&#10;&#10;&#10;" />
     <MESSAGE value="Fixed Home Button&#10;&#10;&#10;" />
     <MESSAGE value="Fixed Some more date issues,&#10;Fixed the todolist issue where it was dropping the first todolistitem" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed Some more date issues,&#10;Fixed the todolist issue where it was dropping the first todolistitem" />
+    <MESSAGE value="Edited Readme file" />
+    <option name="LAST_COMMIT_MESSAGE" value="Edited Readme file" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
