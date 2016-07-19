@@ -23,13 +23,14 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <!--<activity android:name=".activities.MainActivity">-->
-            <!--<intent-filter>-->
-                <!--<action android:name="android.intent.action.MAIN" />-->
+        <!-- <activity android:name=".activities.MainActivity"> -->
+        <!-- <intent-filter> -->
+        <!-- <action android:name="android.intent.action.MAIN" /> -->
 
-                <!--<category android:name="android.intent.category.LAUNCHER" />-->
-            <!--</intent-filter>-->
-        <!--</activity>-->
+
+        <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
+        <!-- </intent-filter> -->
+        <!-- </activity> -->
         <activity android:name=".activities.EditOrDeleteActivity">
             <intent-filter>
                 <action android:name="android.intent.action.EDIT" />
@@ -57,7 +58,7 @@
         <!-- </activity> -->
 
         <activity android:name=".activities.AddA_ToDoList" />
-        <activity android:name=".activities.display_todolist"></activity>
+        <activity android:name=".activities.display_todolist" />
     </application>
 
 </manifest>

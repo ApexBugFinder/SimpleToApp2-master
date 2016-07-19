@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 
 import com.example.orvilleclarke.testfrag.R;
@@ -23,12 +24,13 @@ implements TodoListsFragment.OnListTodoListFragmentInteractionListener  {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_todolistspage_container2);
-//        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-//        setSupportActionBar(toolbar);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
 
 
-        purgeAndInitialSeed();
-        SeedSomeData();
+//        purgeAndInitialSeed();
+//        SeedSomeData();
+//        testdb();
         initializeToDoListsGlobalVariables();
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
 //
@@ -109,6 +111,7 @@ implements TodoListsFragment.OnListTodoListFragmentInteractionListener  {
 //        SQLiteDatabase db = mDbHelper.getWritableDatabase();
         ToDoList ab = new ToDoList();
         ab.ReadAllFromDatabase(getApplicationContext());
+
         ToDoList.getAllAvailableTodoLists();
 
     }
@@ -138,9 +141,13 @@ implements TodoListsFragment.OnListTodoListFragmentInteractionListener  {
         a.setToDoDueDate(new Date());
         a.setDescription("updated");
         a.setCompleted(true);
+
         a.setToDoCompleted(new Date());
         a.setId(newid2);
         c.UpdateInDatabase(a,getApplicationContext());
+        ToDoListContentsOfEachList.ToDoListContent ab = new ToDoListContentsOfEachList.ToDoListContent();
+        ab.ReadAllFromDatabase(getApplicationContext());
+        ab.ReadToDoItemsFromDatabase(Long.valueOf(3), getApplicationContext());
 
         c.DeleteInDatabase(newid,getApplicationContext());
 
@@ -182,13 +189,13 @@ implements TodoListsFragment.OnListTodoListFragmentInteractionListener  {
         ToDoList newlist = new ToDoList();
         ToDoListContentsOfEachList.ToDoListContent newlistitems = new ToDoListContentsOfEachList.ToDoListContent();
         for(int i =0; i< 3; i++){
-            String listTitle = "test" + String.valueOf(i+1);
+            String listTitle = "Seed: TODO List " + String.valueOf(i+1);
             long listid= newlist.Create(listTitle,new Date(), getApplicationContext());
 
             // Each list has 5 todoitems
             for(int j=0; j< 5; j++){
                 ToDoItem testtodo = new ToDoItem();
-                long todoid= testtodo.CreateToDatabase("testtodo"+ String.valueOf(j+1), "test description " + String.valueOf(j+1),new Date(), getApplicationContext());
+                long todoid= testtodo.CreateToDatabase("Seed: TODOLIST " + String.valueOf(i+1) + ": TODOITEM "+ String.valueOf(j+1), "test description " + String.valueOf(j+1),new Date(), getApplicationContext());
 
 
                 //Add to todolistitems
@@ -201,6 +208,12 @@ implements TodoListsFragment.OnListTodoListFragmentInteractionListener  {
     public void purgeAndInitialSeed(){
         ToDoListContentsOfEachList.ToDoListContent ab = new ToDoListContentsOfEachList.ToDoListContent();
         ab.DeleteAllInDatabase(getApplicationContext());
+
+    }
+    public void onHome(View view){
+        Intent intent = new Intent(Main2Activity.this, Main2Activity.class);
+        startActivity(intent);
+        finish();
 
     }
 

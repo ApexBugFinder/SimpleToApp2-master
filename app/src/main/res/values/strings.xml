@@ -15,6 +15,12 @@
     <string name="description">Description:</string>
     <string name="dueDate">Due Date:</string>
     <string name="btnSetDueDate">Set Due Date</string>
+    <string name="tvTodoItemName">NAME:</string>
+    <string name="setTime">Set Time</string>
+    <string name="setDate">Set Date</string>
+    <string name="calendar">Calendar</string>
+    <string name="clock">Clock</string>
+    <string name="todoliststitle">TODO LISTS</string>
     <string-array name="priority">
         <item>LOW</item>
         <item>MED</item>

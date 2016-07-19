@@ -6,11 +6,13 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteDatabaseCorruptException;
 import android.database.sqlite.SQLiteReadOnlyDatabaseException;
+import android.icu.text.SimpleDateFormat;
 
 import com.example.orvilleclarke.testfrag.utils.TodoReaderContract;
 
+import java.text.ParseException;
 import java.util.ArrayList;
-import java.util.Date;
+import java.util.Locale;
 
 /**
  * Created by Orville Clarke on 6/30/2016.
@@ -181,7 +183,8 @@ public static class ToDoListContent{
         TodoReaderContract.TodoListItems.TodoListItemsReaderDbHelper mDbHelper = new TodoReaderContract.TodoListItems.TodoListItemsReaderDbHelper(context);
         SQLiteDatabase db = mDbHelper.getReadableDatabase();
 
-
+        ToDoListContentsOfEachList.ListContains.clear();
+        ToDoListContentsOfEachList.WhatToDisplay.clear();
         // Define a projection that specifies which colums from the database
         // you will actually use after this query.
 
@@ -209,13 +212,13 @@ public static class ToDoListContent{
         if (c.getCount() > 0) {
             read = true;
 
-            ToDoListContentsOfEachList.ListContains.clear();
-            ToDoListContentsOfEachList.WhatToDisplay.clear();
+//            ToDoListContentsOfEachList.ListContains.clear();
+//            ToDoListContentsOfEachList.WhatToDisplay.clear();
             // Read items into the global variable
 
             c.moveToFirst();
 
-            while (c.moveToNext()) {
+            do {
 
                 ToDoListContent toDoListContentInDb = new ToDoListContent();
                 toDoListContentInDb.setId(c.getLong(c.getColumnIndexOrThrow(TodoReaderContract.TodoListItems.COLUMN_NAME_TODOLISTITEM_ID)));
@@ -224,7 +227,7 @@ public static class ToDoListContent{
 
                 ToDoListContentsOfEachList.ListContains.add(toDoListContentInDb);
 
-            }
+            }while(c.moveToNext());
 //            db.close();
             TodoReaderContract.TodoItem.TodoItemReaderDbHelper mDbHelper2 = new TodoReaderContract.TodoItem.TodoItemReaderDbHelper(context);
             SQLiteDatabase db2 = mDbHelper2.getWritableDatabase();
@@ -246,6 +249,7 @@ public static class ToDoListContent{
                     String[] selectionArg2 = new String[]{
                             id
                     };
+
                     Cursor b = db2.rawQuery("select * from " + TodoReaderContract.TodoItem.TABLE_NAME + "  where " +
                             TodoReaderContract.TodoItem.COLUMN_NAME_TODOITEM_ID + " = ?", selectionArg2);
 //                    Cursor b = db2.query(
@@ -257,20 +261,59 @@ public static class ToDoListContent{
 //                            null,
 //                            null);
 
+
+
+                    SimpleDateFormat dateformatter = new SimpleDateFormat("EE MMM dd HH:mm:ss z yyyy",
+                            Locale.US);
                     b.getCount();
                     b.moveToFirst();
-                    ToDoItem foundInDb = new ToDoItem();
-                    foundInDb.setId(b.getLong(b.getColumnIndexOrThrow(TodoReaderContract.TodoItem.COLUMN_NAME_TODOITEM_ID)));
-                    foundInDb.setName(b.getString(b.getColumnIndexOrThrow(TodoReaderContract.TodoItem.COLUMN_NAME_TODOITEM_NAME)));
-                    foundInDb.setDescription(b.getString(b.getColumnIndexOrThrow(TodoReaderContract.TodoItem.COLUMN_NAME_TODOITEM_DESCRIP)));
-                    foundInDb.setCreatedOnDate(new Date(b.getLong(b.getColumnIndexOrThrow(TodoReaderContract.TodoItem.COLUMN_NAME_CREATED_ON_DATE))));
-                    foundInDb.setToDoPriority(b.getString(b.getColumnIndexOrThrow(TodoReaderContract.TodoItem.COLUMN_NAME_TODOITEM_PRIORITY)));
-                    foundInDb.setToDoDueDate(new Date(b.getLong(b.getColumnIndexOrThrow(TodoReaderContract.TodoItem.COLUMN_NAME_TODDUE_ONDATE))));
-                    foundInDb.setToDoCompleted(new Date(b.getLong(b.getColumnIndexOrThrow(TodoReaderContract.TodoItem.COLUMN_NAME_TODCOMPLETED_ONDATE))));
-                    foundInDb.setCompleted(Boolean.parseBoolean(b.getString(b.getColumnIndexOrThrow(TodoReaderContract.TodoItem.COLUMN_NAME_COMPLETED_BOOL))));
+                     try {
+                         ToDoItem foundInDb = new ToDoItem();
+                         foundInDb.setId(b.getLong(b.getColumnIndexOrThrow(TodoReaderContract.TodoItem.COLUMN_NAME_TODOITEM_ID)));
+                         foundInDb.setName(b.getString(b.getColumnIndexOrThrow(TodoReaderContract.TodoItem.COLUMN_NAME_TODOITEM_NAME)));
+                         foundInDb.setDescription(b.getString(b.getColumnIndexOrThrow(TodoReaderContract.TodoItem.COLUMN_NAME_TODOITEM_DESCRIP)));
+
+                         String createdon =b.getString((b.getColumnIndexOrThrow(TodoReaderContract.TodoItem.COLUMN_NAME_CREATED_ON_DATE)));
+                         if(createdon.isEmpty() || createdon == null ){
 
 
-                    ToDoListContentsOfEachList.WhatToDisplay.add(foundInDb);
+                         }else{
+
+                             foundInDb.setCreatedOnDate(dateformatter.parse(createdon));
+                         }
+
+
+                         foundInDb.setToDoPriority(b.getString(b.getColumnIndexOrThrow(TodoReaderContract.TodoItem.COLUMN_NAME_TODOITEM_PRIORITY)));
+                         String tododate =  b.getString(
+                                 b.getColumnIndexOrThrow(
+                                         TodoReaderContract.TodoItem.COLUMN_NAME_TODDUE_ONDATE));
+                         if(tododate.isEmpty() || tododate == null ){
+
+
+                         }else{
+                             foundInDb.setToDoDueDate(dateformatter.parse(tododate));
+                         }
+
+                         String todocompletedon =  b.getString(
+                                 b.getColumnIndexOrThrow(
+                                         TodoReaderContract.TodoItem.COLUMN_NAME_TODCOMPLETED_ONDATE));
+                         if(todocompletedon.isEmpty() || todocompletedon == null ){
+
+
+                         }else {
+
+                             foundInDb.setToDoCompleted(dateformatter.parse(todocompletedon));
+                         }
+
+                         foundInDb.setCompleted(Boolean.parseBoolean(b.getString(b.getColumnIndexOrThrow(TodoReaderContract.TodoItem.COLUMN_NAME_COMPLETED_BOOL))));
+
+
+                         ToDoListContentsOfEachList.WhatToDisplay.add(foundInDb);
+                     }catch(ParseException e){
+                         e.printStackTrace();
+                     }catch(Exception e){
+                         e.printStackTrace();
+                     }
                 }
             }
         }
@@ -285,20 +328,24 @@ public static class ToDoListContent{
         boolean deletedall = false;
         TodoReaderContract.TodoList.TodoListReaderDbHelper mDbHelper1 =
                 new TodoReaderContract.TodoList.TodoListReaderDbHelper(context);
+try {
+    SQLiteDatabase db1 = mDbHelper1.getWritableDatabase();
+    mDbHelper1.onUpgrade(db1, 1, 1);
 
-        SQLiteDatabase db = mDbHelper1.getReadableDatabase();
-        mDbHelper1.onUpgrade(db,1,1);
 
 
         TodoReaderContract.TodoListItems.TodoListItemsReaderDbHelper mDbHelper2 =
                 new TodoReaderContract.TodoListItems.TodoListItemsReaderDbHelper(context);
-        mDbHelper2.onUpgrade(db,1,1);
+        SQLiteDatabase db2 = mDbHelper2.getWritableDatabase();
+        mDbHelper2.onUpgrade(db2,1,1);
 
         TodoReaderContract.TodoItem.TodoItemReaderDbHelper mDbHelper3 =
                 new TodoReaderContract.TodoItem.TodoItemReaderDbHelper(context);
-
-        mDbHelper3.onUpgrade(db,1,1);
-
+        SQLiteDatabase db3 = mDbHelper3.getWritableDatabase();
+        mDbHelper3.onUpgrade(db3,1,1);
+    }catch(Exception e){
+        e.printStackTrace();
+    }
 //        String[] projection = {
 //                TodoReaderContract.TodoList.COLUMN_NAME_TODOLIST_ID,
 //                TodoReaderContract.TodoList.COLUMN_NAME_TODOLIST_TITLE,

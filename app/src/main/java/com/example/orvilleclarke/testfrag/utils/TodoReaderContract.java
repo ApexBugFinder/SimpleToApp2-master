@@ -2,7 +2,6 @@ package com.example.orvilleclarke.testfrag.utils;
 
 import android.content.ContentValues;
 import android.content.Context;
-import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteDatabaseCorruptException;
 import android.database.sqlite.SQLiteOpenHelper;
@@ -35,6 +34,7 @@ public class TodoReaderContract {
         public static String COLUMN_NAME_TODCOMPLETED_ONDATE = "todoitemcompleteddate";
         public static String COLUMN_NAME_TODDUE_ONDATE = "todoitemduedate";
         public static String COLUMN_NAME_COMPLETED_BOOL = "todoitemcompleted";
+        public static String COLUMN_NAME_IS_TODO_DUEDATE_SET = "todotododuedateset";
 
 
 
@@ -42,8 +42,8 @@ public class TodoReaderContract {
 
 
         private static final String TEXT_TYPE = " TEXT";
-        private static final String DATE_TYPE = " DATE";
-        private static final String TIMESTAMP_TYPE = " TIMESTAMP";
+        private static final String DATE_TYPE = " TIMESTAMP DEFAULT CURRENT_TIMESTAMP";
+        private static final String TIMESTAMP_TYPE = " TEXT";
         private static final String BOOL_TYPE = " BOOL";
         private static final String  COMMA_SEP = ",";
         private static final String SQL_CREATE_ENTRIES =
@@ -54,9 +54,10 @@ public class TodoReaderContract {
                         TodoItem.COLUMN_NAME_CREATED_ON_DATE + DATE_TYPE + COMMA_SEP +
                         TodoItem.COLUMN_NAME_TODOITEM_PRIORITY + TEXT_TYPE + COMMA_SEP +
                         TodoItem.COLUMN_NAME_TODCOMPLETED_ONDATE + DATE_TYPE + COMMA_SEP +
-                        TodoItem.COLUMN_NAME_TODDUE_ONDATE + TEXT_TYPE + COMMA_SEP +
-                        TodoItem.COLUMN_NAME_COMPLETED_BOOL + BOOL_TYPE +
-                        " )" ;
+                        TodoItem.COLUMN_NAME_TODDUE_ONDATE + DATE_TYPE +  COMMA_SEP +
+                        TodoItem.COLUMN_NAME_COMPLETED_BOOL + BOOL_TYPE + COMMA_SEP +
+                        TodoItem.COLUMN_NAME_IS_TODO_DUEDATE_SET + BOOL_TYPE +
+                        " );" ;
 
         private static final String SQL_DELETE_ENTRIES = "DROP TABLE IF EXISTS " +
                 TodoItem.TABLE_NAME;
@@ -98,19 +99,20 @@ public class TodoReaderContract {
 
                 ContentValues values = new ContentValues();
 //                values.put(TodoItem.COLUMN_NAME_TODOITEM_ID, "");
-                values.put(TodoItem.COLUMN_NAME_CREATED_ON_DATE, date.toString());
+                values.put(TodoItem.COLUMN_NAME_CREATED_ON_DATE, codate.toString());
                 values.put(TodoItem.COLUMN_NAME_TODOITEM_NAME, name);
                 values.put(TodoItem.COLUMN_NAME_TODOITEM_DESCRIP, description);
                 values.put(TodoItem.COLUMN_NAME_TODOITEM_PRIORITY, priority);
-                values.put(TodoItem.COLUMN_NAME_TODDUE_ONDATE, codate.toString());
-                values.put(TodoItem.COLUMN_NAME_TODCOMPLETED_ONDATE, codate.toString());
+                values.put(TodoItem.COLUMN_NAME_TODDUE_ONDATE, date.toString());
+                values.put(TodoItem.COLUMN_NAME_TODCOMPLETED_ONDATE, date.toString());
                 values.put(TodoItem.COLUMN_NAME_COMPLETED_BOOL, completed);
+                values.put(TodoItem.COLUMN_NAME_IS_TODO_DUEDATE_SET, completed);
                 long id = -1;
                 try {
                     id = db.insert(TodoItem.TABLE_NAME, null, values);
                 if(id !=-1){
                     boolean tried = true;
-                    Cursor c = db.rawQuery("select * from todoitem", null);
+//                    Cursor c = db.rawQuery("select * from todoitem", null);
 //                    while(c.moveToNext()){
 //
 //
@@ -137,8 +139,12 @@ public class TodoReaderContract {
             public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion){
                 // This database is only a cache for online data, so its upgrade policy is
                 // to simply to discard the data and start over
-                db.execSQL(SQL_DELETE_ENTRIES);
-                onCreate(db);
+                try {
+                    db.execSQL(SQL_DELETE_ENTRIES);
+                    onCreate(db);
+                }catch(Exception e){
+                    e.printStackTrace();
+                }
             }
 
             public void onDowngrade(SQLiteDatabase db, int oldVersion, int newVersion){
@@ -157,15 +163,15 @@ public class TodoReaderContract {
         public static String COLUMN_NAME_TODOLIST_DATE_CREATED = "datecreated";
 
         //SQL HELPER
-        private static final String DATE_TYPE = " DATETIME";
+        private static final String DATE_TYPE = " DATETIME DEFAULT CURRENT_TIMESTAMP";
         private static final String TEXT_TYPE = " TEXT";
         private static final String  COMMA_SEP = ",";
         private static final String SQL_CREATE_ENTRIES =
                 "CREATE TABLE " + TodoList.TABLE_NAME + " (" +
                         TodoList.COLUMN_NAME_TODOLIST_ID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
                         TodoList.COLUMN_NAME_TODOLIST_TITLE + TEXT_TYPE + COMMA_SEP +
-                        TodoList.COLUMN_NAME_TODOLIST_DATE_CREATED + DATE_TYPE + " BIGINT" +
-                        " )" ;
+                        TodoList.COLUMN_NAME_TODOLIST_DATE_CREATED + DATE_TYPE +
+                        " );" ;
 
         private static final String SQL_DELETE_ENTRIES = "DROP TABLE IF EXISTS " +
                 TodoList.TABLE_NAME;
@@ -184,18 +190,24 @@ public class TodoReaderContract {
 
             public void onCreate(SQLiteDatabase db){
 
-                java.sql.Date date = new java.sql.Date(Calendar.getInstance().getTime().getTime());
-                db.execSQL(SQL_CREATE_ENTRIES);
-                //TODO SEED ENTRIES
-               SeedData(db);
+                try {
+
+                    db.execSQL(SQL_CREATE_ENTRIES);
+                    //TODO SEED ENTRIES
+                    SeedData(db);
+                }catch(Exception e){
+                    e.printStackTrace();
+                }
 
             }
             public void SeedData(SQLiteDatabase db){
                 java.sql.Date date = new java.sql.Date(Calendar.getInstance().getTime().getTime());
+                java.util.Date utilDate = new java.util.Date();
+                Date codate = new Date(utilDate.getTime());
                 ContentValues values = new ContentValues();
 
                 values.put(TodoList.COLUMN_NAME_TODOLIST_TITLE, "seed title");
-                values.put(TodoList.COLUMN_NAME_TODOLIST_DATE_CREATED, date.toString());
+                values.put(TodoList.COLUMN_NAME_TODOLIST_DATE_CREATED, codate.toString());
 
 
 
@@ -215,8 +227,12 @@ public class TodoReaderContract {
             public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion){
                 // This database is only a cache for online data, so its upgrade policy is
                 // to simply to discard the data and start over
+                try{
                 db.execSQL(SQL_DELETE_ENTRIES);
                 onCreate(db);
+                }catch(Exception e){
+                    e.printStackTrace();
+                }
             }
 
             public void onDowngrade(SQLiteDatabase db, int oldVersion, int newVersion){
@@ -287,8 +303,12 @@ public class TodoReaderContract {
             public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion){
                 // This database is only a cache for online data, so its upgrade policy is
                 // to simply to discard the data and start over
-                db.execSQL(SQL_DELETE_ENTRIES);
-                onCreate(db);
+                try {
+                    db.execSQL(SQL_DELETE_ENTRIES);
+                    onCreate(db);
+                }catch(Exception e){
+                    e.printStackTrace();
+                }
             }
 
             public void onDowngrade(SQLiteDatabase db, int oldVersion, int newVersion){

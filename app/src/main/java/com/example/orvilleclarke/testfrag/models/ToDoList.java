@@ -6,11 +6,13 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteDatabaseCorruptException;
 import android.database.sqlite.SQLiteReadOnlyDatabaseException;
+import android.icu.text.DateFormat;
+import android.icu.text.SimpleDateFormat;
 
-import com.example.orvilleclarke.testfrag.utils.Helpers;
-
+import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Locale;
 
 import static com.example.orvilleclarke.testfrag.utils.TodoReaderContract.TodoList;
 
@@ -112,7 +114,14 @@ public class ToDoList {
 
         TodoList.TodoListReaderDbHelper mDbHelper = new TodoList.TodoListReaderDbHelper(context);
 
-
+        SimpleDateFormat dateformatter = new SimpleDateFormat("EE MMM dd HH:mm:ss z yyyy",
+                Locale.US);
+        String tempDAte ="" ;
+        try {
+            tempDAte =  dateformatter.format(createdOn);
+        }catch(Exception e){
+            e.printStackTrace();
+        }
         // Gets the data repository in write mode
         SQLiteDatabase db = mDbHelper.getWritableDatabase();
 
@@ -120,7 +129,7 @@ public class ToDoList {
         //Create a new map of values, where column names are the keys
         ContentValues values = new ContentValues();
         values.put(TodoList.COLUMN_NAME_TODOLIST_TITLE, title1);
-        values.put(TodoList.COLUMN_NAME_TODOLIST_DATE_CREATED, Helpers.getDateTime());
+        values.put(TodoList.COLUMN_NAME_TODOLIST_DATE_CREATED, tempDAte);
 
 
         long id = -1;
@@ -181,17 +190,26 @@ public class ToDoList {
             // Read items into the global variable
 
             c.moveToFirst();
+            DateFormat formatter;
 
-            while (c.moveToNext()) {
+            formatter = new SimpleDateFormat("EE MMM dd HH:mm:ss z yyyy",
+                    Locale.US);
+            try {
+                while (c.moveToNext()) {
 
-                ToDoList toDoListInDb = new ToDoList();
-                toDoListInDb.id = c.getLong(c.getColumnIndexOrThrow(TodoList.COLUMN_NAME_TODOLIST_ID));
-                toDoListInDb.title = c.getString(c.getColumnIndexOrThrow(TodoList.COLUMN_NAME_TODOLIST_TITLE));
-                toDoListInDb.dateCreated = new Date(c.getLong(c.getColumnIndexOrThrow(TodoList.COLUMN_NAME_TODOLIST_DATE_CREATED)));
+                    ToDoList toDoListInDb = new ToDoList();
+                    toDoListInDb.id = c.getLong(c.getColumnIndexOrThrow(TodoList.COLUMN_NAME_TODOLIST_ID));
+                    toDoListInDb.title = c.getString(c.getColumnIndexOrThrow(TodoList.COLUMN_NAME_TODOLIST_TITLE));
+                    toDoListInDb.dateCreated = formatter.parse(c.getString(c.getColumnIndexOrThrow(TodoList.COLUMN_NAME_TODOLIST_DATE_CREATED)));
 
-                allAvailableTodoLists.add(toDoListInDb);
+                    allAvailableTodoLists.add(toDoListInDb);
 
 
+                }
+            }catch(ParseException e){
+                e.printStackTrace();
+            }catch (Exception e){
+                e.printStackTrace();
             }
         }
             return read;
