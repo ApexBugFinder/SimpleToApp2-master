@@ -21,7 +21,7 @@
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cae4534d-9631-4141-b6a1-69a20b0e64ae" name="Default" comment="">
+    <list default="true" id="cae4534d-9631-4141-b6a1-69a20b0e64ae" name="Default" comment="Edited Readme file">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -2979,7 +2979,13 @@
       <option name="project" value="LOCAL" />
       <updated>1468936289801</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Fixed Some more date issues,&#10;Fixed the todolist issue where it was dropping the first todolistitem">
+      <created>1468940330025</created>
+      <option name="number" value="00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1468940330025</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TodoView">
