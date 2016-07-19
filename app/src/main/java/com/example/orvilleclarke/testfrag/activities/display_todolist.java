@@ -105,7 +105,7 @@ implements ToDoListFragment.OnToDoItemFragmentInteractionListener {
             }
         }
 
-    public void onHome(){
+    public void onHome(View view){
         Intent intent = new Intent(display_todolist.this, Main2Activity.class);
         startActivity(intent);
         finish();

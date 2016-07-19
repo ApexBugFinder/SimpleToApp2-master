@@ -210,7 +210,7 @@ implements TodoListsFragment.OnListTodoListFragmentInteractionListener  {
         ab.DeleteAllInDatabase(getApplicationContext());
 
     }
-    public void onHome(){
+    public void onHome(View view){
         Intent intent = new Intent(Main2Activity.this, Main2Activity.class);
         startActivity(intent);
         finish();
