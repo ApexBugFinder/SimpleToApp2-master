@@ -15,6 +15,7 @@ import com.example.orvilleclarke.testfrag.utils.TodoReaderContract;
 
 import java.util.Calendar;
 import java.util.Date;
+import java.util.Locale;
 
 /**
  * Created by Orville Clarke on 6/30/2016.
@@ -176,21 +177,39 @@ public class ToDoItem {
         try {
             // Get the data repository in write mode
             SQLiteDatabase db = mDbHelper.getWritableDatabase();
+            SimpleDateFormat dateformatter = new SimpleDateFormat("EE MMM dd HH:mm:ss z yyyy",
+                    Locale.US);
+            Date tempDAte= new Date();
 
+            if(newTodo.getToDoCompleted()== null){
 
+                newTodo.setToDoCompleted(tempDAte);
+
+            }
+            if(newTodo.getToDoDueDate() == null){
+                newTodo.setToDoDueDate(tempDAte);
+            }
+            String createdonDate = dateformatter.format(newTodo.getToDoCompleted()).toString();
             // Create a new map of values where the columnn names are keys
             ContentValues values = new ContentValues();
 //            values.put(TodoReaderContract.TodoItem.COLUMN_NAME_TODOITEM_ID, "");
-            if (newTodo.getName() != null) values.put(TodoReaderContract.TodoItem.COLUMN_NAME_TODOITEM_NAME, newTodo.name);
-            if (newTodo.getDescription() != null) values.put(TodoReaderContract.TodoItem.COLUMN_NAME_TODOITEM_DESCRIP, newTodo.description);
-            if (newTodo.getCreatedOnDate() != null) values.put(TodoReaderContract.TodoItem.COLUMN_NAME_CREATED_ON_DATE, newTodo.CreatedOnDate.toString());
-            if (newTodo.getToDoPriority() != null)  values.put(TodoReaderContract.TodoItem.COLUMN_NAME_TODOITEM_PRIORITY, newTodo.getToDoPriority());
-            if (newTodo.getToDoDueDate() != null)  values.put(TodoReaderContract.TodoItem.COLUMN_NAME_TODDUE_ONDATE, newTodo.getToDoDueDate().toString());
-            if(newTodo.getToDoCompleted() != null) values.put(TodoReaderContract.TodoItem.COLUMN_NAME_TODCOMPLETED_ONDATE, newTodo.getToDoCompleted().toString());
+            if (newTodo.getName() != null)
+                values.put(TodoReaderContract.TodoItem.COLUMN_NAME_TODOITEM_NAME, newTodo.name);
+            if (newTodo.getDescription() != null)
+                values.put(TodoReaderContract.TodoItem.COLUMN_NAME_TODOITEM_DESCRIP, newTodo.description);
+            if (newTodo.getCreatedOnDate() != null)
+                values.put(TodoReaderContract.TodoItem.COLUMN_NAME_CREATED_ON_DATE, dateformatter.format(newTodo.CreatedOnDate).toString());
+            if (newTodo.getToDoPriority() != null)
+                values.put(TodoReaderContract.TodoItem.COLUMN_NAME_TODOITEM_PRIORITY, newTodo.getToDoPriority());
+            if (newTodo.getToDoDueDate() != null)
+                values.put(TodoReaderContract.TodoItem.COLUMN_NAME_TODDUE_ONDATE, createdonDate);
+            if (newTodo.getToDoCompleted() != null)
+                values.put(TodoReaderContract.TodoItem.COLUMN_NAME_TODCOMPLETED_ONDATE, dateformatter.format(newTodo.getToDoCompleted()).toString());
             values.put(TodoReaderContract.TodoItem.COLUMN_NAME_IS_TODO_DUEDATE_SET, newTodo.isDueDateSet());
             values.put(TodoReaderContract.TodoItem.COLUMN_NAME_COMPLETED_BOOL, newTodo.Completed);
 
             id = db.insert(TodoReaderContract.TodoItem.TABLE_NAME, null, values);
+
         }catch(NullPointerException e){
             e.printStackTrace();
 

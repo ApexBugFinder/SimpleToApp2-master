@@ -6,7 +6,6 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteDatabaseCorruptException;
 import android.database.sqlite.SQLiteReadOnlyDatabaseException;
-import android.icu.text.DateFormat;
 import android.icu.text.SimpleDateFormat;
 
 import com.example.orvilleclarke.testfrag.utils.TodoReaderContract;
@@ -260,10 +259,11 @@ public static class ToDoListContent{
 //                            null,
 //                            null,
 //                            null);
-                    DateFormat formatter;
-                    SimpleDateFormat sdf = new SimpleDateFormat("EE MMM dd HH:mm:ss z yyyy",
-                            Locale.ENGLISH);
-                    formatter = new SimpleDateFormat("dd-MM-yyyy");
+
+
+
+                    SimpleDateFormat dateformatter = new SimpleDateFormat("EE MMM dd HH:mm:ss z yyyy",
+                            Locale.US);
                     b.getCount();
                     b.moveToFirst();
                      try {
@@ -277,7 +277,8 @@ public static class ToDoListContent{
 
 
                          }else{
-                             foundInDb.setCreatedOnDate(sdf.parse(createdon));
+
+                             foundInDb.setCreatedOnDate(dateformatter.parse(createdon));
                          }
 
 
@@ -289,7 +290,7 @@ public static class ToDoListContent{
 
 
                          }else{
-                             foundInDb.setToDoDueDate(sdf.parse(tododate));
+                             foundInDb.setToDoDueDate(dateformatter.parse(tododate));
                          }
 
                          String todocompletedon =  b.getString(
@@ -299,7 +300,8 @@ public static class ToDoListContent{
 
 
                          }else {
-                             foundInDb.setToDoCompleted(sdf.parse(todocompletedon));
+
+                             foundInDb.setToDoCompleted(dateformatter.parse(todocompletedon));
                          }
 
                          foundInDb.setCompleted(Boolean.parseBoolean(b.getString(b.getColumnIndexOrThrow(TodoReaderContract.TodoItem.COLUMN_NAME_COMPLETED_BOOL))));

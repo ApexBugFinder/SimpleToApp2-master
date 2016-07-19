@@ -9,4 +9,5 @@
     <color name="colorLow">#1CFF8C</color>
     <color name="colorMed">#DFE80E</color>
     <color name="colorHigh">#FC101D</color>
+    <color name="colorWhite">#FFFFFF</color>
 </resources>

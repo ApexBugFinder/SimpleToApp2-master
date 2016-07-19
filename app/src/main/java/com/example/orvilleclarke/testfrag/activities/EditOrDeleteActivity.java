@@ -6,9 +6,11 @@ import android.icu.util.Calendar;
 import android.icu.util.TimeZone;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
@@ -25,8 +27,10 @@ import com.example.orvilleclarke.testfrag.models.ToDoListContentsOfEachList;
 
 import org.apache.commons.lang3.time.DateFormatUtils;
 
+import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Locale;
 
 public class EditOrDeleteActivity extends AppCompatActivity  {
 
@@ -51,6 +55,7 @@ public class EditOrDeleteActivity extends AppCompatActivity  {
     ToDoItem editItem;
     private EditText editTextdescription;
     private TextView tvListId;
+
     ToDoListContentsOfEachList.ToDoListContent addToList = new ToDoListContentsOfEachList.ToDoListContent();
 
 
@@ -61,7 +66,8 @@ public class EditOrDeleteActivity extends AppCompatActivity  {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_or_delete);
-
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
         // links textview to tvItem
 //        addListeners();
         editItem = new ToDoItem();
@@ -72,7 +78,7 @@ public class EditOrDeleteActivity extends AppCompatActivity  {
         tvItemId        =   (TextView) findViewById(R.id.todoId);
         tvListId        =   (TextView) findViewById(R.id.tvListId);
         etUpdateText    =   (EditText) findViewById(R.id.etUpdateText);
-         datePicker      =   (DatePicker) findViewById(R.id.datePicker);
+        datePicker      =   (DatePicker) findViewById(R.id.datePicker);
         timePicker      =   (TimePicker) findViewById(R.id.timePicker);
         textViewDueDate =   (TextView)  findViewById(R.id.textViewDueDate);
         textViewDueTime = (TextView) findViewById(R.id.textViewDueTime);
@@ -81,8 +87,30 @@ public class EditOrDeleteActivity extends AppCompatActivity  {
         final LinearLayout calendar_contents_layout = (LinearLayout)findViewById(R.id.LinearLayoutCalendarContents);
         final LinearLayout clock_layout = (LinearLayout)findViewById(R.id.LinearLayoutClock);
         final LinearLayout clock_contents_layout = (LinearLayout)findViewById(R.id.LinearLayoutClockContents);
+        final LinearLayout priority_view_layout = (LinearLayout)findViewById(R.id.LinearLayoutPriorityView);
+        spinner1.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int pos, long id) {
+                if (spinner1.getItemAtPosition(pos).toString().equals("LOW")){
+                    priority_view_layout.setBackgroundResource(Integer.valueOf(R.color.colorLow));
+                    editItem.setToDoPriority("LOW");
+                }
+                if(spinner1.getItemAtPosition(pos).toString().equals("MED")){
+                    priority_view_layout.setBackgroundResource(Integer.valueOf(R.color.colorMed));
+                    editItem.setToDoPriority("MED");
+                }
+                if(spinner1.getItemAtPosition(pos).toString().equals("HIGH")){
+                    priority_view_layout.setBackgroundResource(Integer.valueOf(R.color.colorHigh));
+                    editItem.setToDoPriority("HIGH");
+                }
+            }
 
-//        calendar_contents_layout.setScaleY(0.0f);
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
+
         calendar_layout.setOnClickListener(new View.OnClickListener()
         {
             @Override
@@ -90,12 +118,12 @@ public class EditOrDeleteActivity extends AppCompatActivity  {
                 try{
                     Animation animation = AnimationUtils.loadAnimation(view.getContext(), R.anim.my_calendar_clock_animation);
                     if(calendar_contents_layout.getVisibility()== LinearLayout.INVISIBLE){
-                    calendar_contents_layout.setVisibility(LinearLayout.VISIBLE);
+                        calendar_contents_layout.setVisibility(LinearLayout.VISIBLE);
 
-                    datePicker.setAnimation(animation);
-                    datePicker.animate();
-                    datePicker.setVisibility(LinearLayout.VISIBLE);
-                    animation.start();
+                        datePicker.setAnimation(animation);
+                        datePicker.animate();
+                        datePicker.setVisibility(LinearLayout.VISIBLE);
+                        animation.start();
                     }else{
                         calendar_contents_layout.setVisibility(LinearLayout.INVISIBLE);
                         datePicker.setVisibility(View.GONE);
@@ -135,12 +163,13 @@ public class EditOrDeleteActivity extends AppCompatActivity  {
         dataAdapter.setDropDownViewResource(R.layout.activity_edit_or_delete);
 
 
-        // gets messages from intent
+
+        // gets messages from intent and set variables for the listId and itemId
         Bundle b = getIntent().getExtras();
         String listId = b.getString("listId");
-
         String itemId = b.getString("itemId");
         addToList.setListid(Long.valueOf(listId));
+
 
         if(!itemId.equals("new")) {
             addToList.setTodoid(Long.valueOf(itemId));
@@ -176,24 +205,26 @@ public class EditOrDeleteActivity extends AppCompatActivity  {
                 tvListId.setText(listId);
                 tvItemId.setText(String.valueOf(editItem.getId()));
 
-                if(editItem.getToDoPriority() == "LOW"){
+                if(editItem.getToDoPriority().equals("LOW")){
                     int position = 0 ;
 
                     position =  dataAdapter.getPosition("LOW");
                     spinner1.setSelection(position);
+                    priority_view_layout.setBackgroundColor(0xff00ff00);
 
-                }if(editItem.getToDoPriority() == "MED"){
-                    int position = 0 ;
+                }if(editItem.getToDoPriority().equals("MED")){
+                    int position =1 ;
 
                     position =  dataAdapter.getPosition("MED");
                     spinner1.setSelection(position);
+                    priority_view_layout.setBackgroundColor(0xffF530D);
 
-                }if(editItem.getToDoPriority() == "HIGH"){
-                    int position = 0 ;
+                }if(editItem.getToDoPriority().equals("HIGH")){
+                    int position = 2 ;
 
                     position =  dataAdapter.getPosition("HIGH");
                     spinner1.setSelection(position);
-
+                    priority_view_layout.setBackgroundColor(0xffE82C0C);
                 }
 
                 editTextdescription.setText( editItem.getDescription());
@@ -203,6 +234,7 @@ public class EditOrDeleteActivity extends AppCompatActivity  {
                     year= dateInfo.get(0);
                     month = dateInfo.get(1);
                     day = dateInfo.get(2);
+                    showTime(dueDate);
 //  String date = DateFormatUtils.format(dueDate, "yyyy-MM-dd HH:mm:ss");
 //                    year =Integer.valueOf( date.substring(0,4));
 //                    month = Integer.valueOf(date.substring(5,7));
@@ -217,6 +249,7 @@ public class EditOrDeleteActivity extends AppCompatActivity  {
                     year= dateInfo.get(0);
                     month = dateInfo.get(1);
                     day = dateInfo.get(2);
+
 //                    String date = DateFormatUtils.format(dueDate, "yyyy-MM-dd HH:mm:ss");
 //                    year =Integer.valueOf( date.substring(0,4));
 //                    month = Integer.valueOf(date.substring(5,7));
@@ -243,24 +276,40 @@ public class EditOrDeleteActivity extends AppCompatActivity  {
         if(etUpdateText.getText().toString().isEmpty()){
 
         }else{
-        editItem.setName( etUpdateText.getText().toString());}
+
+
+        editItem.setName( etUpdateText.getText().toString());
+
+        }
+
+        //SETS  DESCRIPTION
         String fieldValueOld = tvItem.getText().toString();
         String fieldValueId =  tvItemId.getText().toString();
         editItem.setToDoPriority( String.valueOf(spinner1.getSelectedItem()));
         editItem.setDescription(editTextdescription.getText().toString());
 
-
-
+        //IF NEW TODOITEM CREATE TO DATABASE
         if(fieldValueId == null || fieldValueId == "" || addToList.getTodoid()==0){
-            editItem.setCreatedOnDate(new Date());
+            Date createdonDate = new Date();
+            SimpleDateFormat dateformatter = new SimpleDateFormat("EE MMM dd HH:mm:ss z yyyy",
+                    Locale.US);
+            try {
+              createdonDate=  dateformatter.parse(createdonDate.toString());
+            }catch(ParseException e){
+                e.printStackTrace();
+            }
+            editItem.setCreatedOnDate(createdonDate);
             long id = editItem.CreateToDatabase(editItem,getApplicationContext());
             ToDoListContentsOfEachList.ToDoListContent updateList = new ToDoListContentsOfEachList.ToDoListContent(addToList.getListid(), id);
             updateList.Create(updateList.getListid(), updateList.getTodoid(), getApplicationContext());
         }else{
 
+
+            //UPDATES EXiSTING DATABASE ITEM
             editItem.UpdateInDatabase(editItem, getApplicationContext());
 
         }
+
 
         ToDoListContentsOfEachList.ToDoListContent ab = new ToDoListContentsOfEachList.ToDoListContent();
         ab.ReadAllFromDatabase(getApplicationContext());
@@ -353,6 +402,8 @@ private DatePicker.OnDateChangedListener myDateListener = new DatePicker.OnDateC
          year =Integer.valueOf(date.substring(0,4));
          month = Integer.valueOf(date.substring(5,7));
          day = Integer.valueOf(date.substring(8,10));
+
+
         ArrayList<Integer> processdateInfo = new ArrayList<Integer>(3);
         processdateInfo.add(year);
         processdateInfo.add(month);
@@ -388,14 +439,26 @@ private DatePicker.OnDateChangedListener myDateListener = new DatePicker.OnDateC
         long daylong = (long)datePicker.getDayOfMonth();
         Date aa = new Date( year -1900  , month , day, hh, mm);
         Date bb = new Date();
+        boolean set = true;
+        editItem.setDueDateSet(set);
 
-       editItem.setToDoDueDate(aa);
+        SimpleDateFormat dateformatter = new SimpleDateFormat("EE MMM dd HH:mm:ss z yyyy",
+                Locale.US);
 
+        Date parsedDate = null;
+        try{
+            parsedDate = dateformatter.parse(aa.toString());
+        }catch(ParseException e){
+            e.printStackTrace();
+        }
+        editItem.setToDoDueDate(parsedDate);
         showDate(year, month,day);
         showTime(aa);
     }
 
 public void addListeners(){
+
+//
 
 }
 
