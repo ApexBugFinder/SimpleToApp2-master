@@ -1,3 +1,432 @@
 <?xml version="1.0" encoding="utf-8"?>
-<items version="2" />
+<items version="2" >
 
+    <item
+        jar="E:\Current Programming Projects\SimpleToApp2-master\app\build\intermediates\exploded-aar\com.google.firebase\firebase-iid\9.2.0\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="dc4c18602ecffb3e69cda6cdc51ba4feac0f97d7">
+        <dex dex="E:\Current Programming Projects\SimpleToApp2-master\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-iid-9.2.0_454d680ca4d0a385cfd1f46369941ea1422210c0\classes.dex" />
+    </item>
+    <item
+        jar="E:\Current Programming Projects\SimpleToApp2-master\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-panorama\9.2.0\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="33b5900f82d19fd3dacee518363b249ace77b8f5">
+        <dex dex="E:\Current Programming Projects\SimpleToApp2-master\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-panorama-9.2.0_c958eea1fd7aea7daf17201f8041fbafde56b735\classes.dex" />
+    </item>
+    <item
+        jar="E:\Current Programming Projects\SimpleToApp2-master\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-clearcut\9.2.0\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="b53d61bae49278c0fa202d9066d2e72fc151c1e8">
+        <dex dex="E:\Current Programming Projects\SimpleToApp2-master\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-clearcut-9.2.0_f7f4a4b38feefd12304f6c570fae68b04f6b8fac\classes.dex" />
+    </item>
+    <item
+        jar="E:\Current Programming Projects\SimpleToApp2-master\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-tagmanager\9.2.0\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="7378806b630886994099d03c369983f2848a609f">
+        <dex dex="E:\Current Programming Projects\SimpleToApp2-master\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-tagmanager-9.2.0_614d61e661fb61e88adce710c7fe4ed5a663003d\classes.dex" />
+    </item>
+    <item
+        jar="E:\Current Programming Projects\SimpleToApp2-master\app\build\intermediates\exploded-aar\com.google.firebase\firebase-storage\9.2.0\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="a378adc3106cb3560ab3dfed05f1fda26cff5b49">
+        <dex dex="E:\Current Programming Projects\SimpleToApp2-master\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-storage-9.2.0_05a85621b45e5c80eeb45f063a0b529c804ced2c\classes.dex" />
+    </item>
+    <item
+        jar="E:\Current Programming Projects\SimpleToApp2-master\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-contextmanager\9.2.0\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="8ad1b5663f367dac619256d75fb08a98c7baa4f4">
+        <dex dex="E:\Current Programming Projects\SimpleToApp2-master\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-contextmanager-9.2.0_6987dd21a064cf0c5a3b22e70171b1fb1ac4f109\classes.dex" />
+    </item>
+    <item
+        jar="E:\Current Programming Projects\SimpleToApp2-master\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-cast\9.2.0\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="be009dbe07b3a252c8cda07fc948ac713d2f5171">
+        <dex dex="E:\Current Programming Projects\SimpleToApp2-master\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-cast-9.2.0_6d82e2c790b82f7decec981a711d2ffe194613c6\classes.dex" />
+    </item>
+    <item
+        jar="E:\Current Programming Projects\SimpleToApp2-master\app\build\intermediates\exploded-aar\com.google.firebase\firebase-messaging\9.2.0\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="21bb89120d84fa29afeb0f9c0ebf415bc3b45a7e">
+        <dex dex="E:\Current Programming Projects\SimpleToApp2-master\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-messaging-9.2.0_fe9517d26b07b5109627979026aada2dcd1044a1\classes.dex" />
+    </item>
+    <item
+        jar="E:\Current Programming Projects\SimpleToApp2-master\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-iid\9.2.0\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="fbb50f7f89342c915898c9376a67229e2fcee286">
+        <dex dex="E:\Current Programming Projects\SimpleToApp2-master\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-iid-9.2.0_3ce657fe8949e41c59e2f2009e2d53d0552b5e48\classes.dex" />
+    </item>
+    <item
+        jar="E:\Current Programming Projects\SimpleToApp2-master\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-auth\9.2.0\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="f56a68df45e18ce77814db6553fdaa229308f49b">
+        <dex dex="E:\Current Programming Projects\SimpleToApp2-master\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-auth-9.2.0_c291262a9842ebfe67532b2feb9103d835dc0812\classes.dex" />
+    </item>
+    <item
+        jar="E:\Current Programming Projects\SimpleToApp2-master\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-plus\9.2.0\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="e3f200938bb888d83c2da807cb6aee983baae254">
+        <dex dex="E:\Current Programming Projects\SimpleToApp2-master\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-plus-9.2.0_ab15d5e3f27c4da395fe674a682c1b53c41d34bb\classes.dex" />
+    </item>
+    <item
+        jar="E:\Current Programming Projects\SimpleToApp2-master\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-base\9.2.0\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="30489a97b06cc3945bdbcc1770089af9e3b3b64d">
+        <dex dex="E:\Current Programming Projects\SimpleToApp2-master\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-base-9.2.0_6553724d0974a00fd04b3689e652cdf490b8e77f\classes.dex" />
+    </item>
+    <item
+        jar="E:\Current Programming Projects\SimpleToApp2-master\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-places\9.2.0\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="8ec9ae00d45e758ac5b7a1c5dc0daa8a4b24280f">
+        <dex dex="E:\Current Programming Projects\SimpleToApp2-master\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-places-9.2.0_4a62afba13f297101f7df95c9fcc1930e4a3da20\classes.dex" />
+    </item>
+    <item
+        jar="E:\Current Programming Projects\SimpleToApp2-master\app\build\intermediates\exploded-aar\com.android.support\mediarouter-v7\23.0.0\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="d358b3dd49a7c67844622dcbc9cf4339e13952ce">
+        <dex dex="E:\Current Programming Projects\SimpleToApp2-master\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-mediarouter-v7-23.0.0_8a3d9135dd565630ef4158078a9961645a9fcef4\classes.dex" />
+    </item>
+    <item
+        jar="E:\Current Programming Projects\SimpleToApp2-master\app\build\intermediates\exploded-aar\com.google.firebase\firebase-database-connection\9.2.0\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="33203b081101ca6242a4cd746aafe5fc2dd98a34">
+        <dex dex="E:\Current Programming Projects\SimpleToApp2-master\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-database-connection-9.2.0_296de655ba3010147b1d079d0db18ab610e58b74\classes.dex" />
+    </item>
+    <item
+        jar="E:\Current Programming Projects\SimpleToApp2-master\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-analytics\9.2.0\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="18e52280643effbab30370b073e456d670a0db54">
+        <dex dex="E:\Current Programming Projects\SimpleToApp2-master\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-analytics-9.2.0_e8eb5ab983f96a6bfe196a65ab0303a3f6fa3dc0\classes.dex" />
+    </item>
+    <item
+        jar="E:\Current Programming Projects\SimpleToApp2-master\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-appindexing\9.2.0\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="811202a9098047576814fc2171b56b83b537a8b9">
+        <dex dex="E:\Current Programming Projects\SimpleToApp2-master\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-appindexing-9.2.0_86aafe52dfa92943f677c5326dff4c6ab4da1ca2\classes.dex" />
+    </item>
+    <item
+        jar="E:\Current Programming Projects\SimpleToApp2-master\app\build\intermediates\exploded-aar\com.google.firebase\firebase-analytics\9.2.0\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="4838df6db988160b107e954e02a745370df543b6">
+        <dex dex="E:\Current Programming Projects\SimpleToApp2-master\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-analytics-9.2.0_c13685686cd11788d3c8dc42a8f25ee8bbab0a69\classes.dex" />
+    </item>
+    <item
+        jar="E:\Current Programming Projects\SimpleToApp2-master\app\build\intermediates\exploded-aar\com.android.support\support-v4\24.0.0\jars\libs\internal_impl-24.0.0.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="fcaf463e10e69c1923ccf1edeba3b4196d239e00">
+        <dex dex="E:\Current Programming Projects\SimpleToApp2-master\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-24.0.0_02dc67300fea25648ad31fc117292e1a575a944d\classes.dex" />
+    </item>
+    <item
+        jar="E:\Current Programming Projects\SimpleToApp2-master\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-ads-lite\9.2.0\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="e91e1f335dc418d0138991a1d5155f0490ab6082">
+        <dex dex="E:\Current Programming Projects\SimpleToApp2-master\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-ads-lite-9.2.0_8b40701e6e649d174a60e64820425f6f0f1e1b5b\classes.dex" />
+    </item>
+    <item
+        jar="E:\Current Programming Projects\SimpleToApp2-master\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="0f737cbca7c0f97b0475ffee1b4d1e76195f0114">
+        <dex dex="E:\Current Programming Projects\SimpleToApp2-master\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run_20e469142c77dd2bca0fbef08613b989488a7411\classes.dex" />
+    </item>
+    <item
+        jar="E:\Current Programming Projects\SimpleToApp2-master\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-games\9.2.0\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="dd7b4a8e01cafa79a0b228b2ee5bd57ae5577444">
+        <dex dex="E:\Current Programming Projects\SimpleToApp2-master\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-games-9.2.0_d6b0d61eb57235e567a81d3d9a993defe84977eb\classes.dex" />
+    </item>
+    <item
+        jar="E:\Current Programming Projects\SimpleToApp2-master\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-basement\9.2.0\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="dd7676ac12aa6653718b7ea33d93ce9d6915d526">
+        <dex dex="E:\Current Programming Projects\SimpleToApp2-master\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-basement-9.2.0_a6c49a2944be1c8fb1701758ccbedc90393bc27d\classes.dex" />
+    </item>
+    <item
+        jar="E:\Current Programming Projects\SimpleToApp2-master\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-ads\9.2.0\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="a06eb7761fca120bbb46b34b930a3a3462ba9d7f">
+        <dex dex="E:\Current Programming Projects\SimpleToApp2-master\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-ads-9.2.0_b961ea158ccf29c23ce87fd8de1759a58111bc96\classes.dex" />
+    </item>
+    <item
+        jar="E:\Current Programming Projects\SimpleToApp2-master\app\build\intermediates\exploded-aar\com.android.support\support-v4\24.0.0\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="2f7e6e2dad1bccaf68a8820820adc6c0d5b96d37">
+        <dex dex="E:\Current Programming Projects\SimpleToApp2-master\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-v4-24.0.0_e55fd947d15a0ec3cd5ddbc6df6d4cd4d01beeef\classes.dex" />
+    </item>
+    <item
+        jar="E:\Current Programming Projects\SimpleToApp2-master\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-maps\9.2.0\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="299e04800d1169b9f3dd04c376c7b266a3594cca">
+        <dex dex="E:\Current Programming Projects\SimpleToApp2-master\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-maps-9.2.0_bdad7bfde3fc355b33e30cfdd954198892717262\classes.dex" />
+    </item>
+    <item
+        jar="E:\Current Programming Projects\SimpleToApp2-master\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\24.0.0\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="0874286cc2fd88d54fdf130e9d5372730da6de97">
+        <dex dex="E:\Current Programming Projects\SimpleToApp2-master\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-appcompat-v7-24.0.0_b87ed08428a86d296c13d938535f9ba98f4ff2e0\classes.dex" />
+    </item>
+    <item
+        jar="E:\Current Programming Projects\SimpleToApp2-master\app\build\intermediates\exploded-aar\com.google.firebase\firebase-analytics-impl\9.2.0\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="fb15fd9774b5c51dcb39d8e6fa1b6f06bcd1cd34">
+        <dex dex="E:\Current Programming Projects\SimpleToApp2-master\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-analytics-impl-9.2.0_e599d2ed3462f239f21e97550662ff83f65edf37\classes.dex" />
+    </item>
+    <item
+        jar="E:\Current Programming Projects\SimpleToApp2-master\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-wallet\9.2.0\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="39261f58509b1a379df041f03da394c29da05395">
+        <dex dex="E:\Current Programming Projects\SimpleToApp2-master\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-wallet-9.2.0_292864148a94b726b54e1aaef6029c671f8ec077\classes.dex" />
+    </item>
+    <item
+        jar="E:\Current Programming Projects\SimpleToApp2-master\app\build\intermediates\exploded-aar\com.google.firebase\firebase-common\9.2.0\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="363f626ad5686283250cdb6073ae1bba5cb07a87">
+        <dex dex="E:\Current Programming Projects\SimpleToApp2-master\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-common-9.2.0_de7171326e27029c28de837464eb45d10d497ed2\classes.dex" />
+    </item>
+    <item
+        jar="E:\Current Programming Projects\SimpleToApp2-master\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-cast-framework\9.2.0\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="163b095362fd14d682ac311bf672c2fb54de5078">
+        <dex dex="E:\Current Programming Projects\SimpleToApp2-master\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-cast-framework-9.2.0_9b0c183c9eccfb0800dd3ab408831ee82e61e5c2\classes.dex" />
+    </item>
+    <item
+        jar="E:\Current Programming Projects\SimpleToApp2-master\app\build\intermediates\exploded-aar\com.google.firebase\firebase-auth\9.2.0\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="20ca7888c59f63d439f218a8810c88039f8bc7db">
+        <dex dex="E:\Current Programming Projects\SimpleToApp2-master\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-auth-9.2.0_a5dbf5203180ad18f5045110a3d53baee8a3b470\classes.dex" />
+    </item>
+    <item
+        jar="E:\Current Programming Projects\SimpleToApp2-master\app\build\intermediates\exploded-aar\com.google.firebase\firebase-storage-common\9.2.0\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="fa6c324604383981fb74c4cb036d4171ed0a9a02">
+        <dex dex="E:\Current Programming Projects\SimpleToApp2-master\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-storage-common-9.2.0_cb578bfa2e8db792802b9966c7a368963b7f5e2f\classes.dex" />
+    </item>
+    <item
+        jar="E:\Current Programming Projects\SimpleToApp2-master\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-tasks\9.2.0\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="593fbaec1c3e100480a2bd72457b64b7dde6ac2d">
+        <dex dex="E:\Current Programming Projects\SimpleToApp2-master\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-tasks-9.2.0_8010a9d3fdbe9189bd2d3bb319cafd34bb21222e\classes.dex" />
+    </item>
+    <item
+        jar="E:\Current Programming Projects\SimpleToApp2-master\app\build\intermediates\exploded-aar\com.android.support\design\24.0.0\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="fc29308a7a8f6d4407b34634eb48fb8b817f9b23">
+        <dex dex="E:\Current Programming Projects\SimpleToApp2-master\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-design-24.0.0_af0a760e937a37ebd79540f637e26fe67c72c3b3\classes.dex" />
+    </item>
+    <item
+        jar="E:\Current Programming Projects\SimpleToApp2-master\app\build\intermediates\exploded-aar\com.google.firebase\firebase-auth-module\9.2.0\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="e791f7f2fbf9ca5b3b576916533f844dfb384024">
+        <dex dex="E:\Current Programming Projects\SimpleToApp2-master\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-auth-module-9.2.0_ebcee115e3dc4b0904099da7083a8c3bbad96b9c\classes.dex" />
+    </item>
+    <item
+        jar="E:\Current Programming Projects\SimpleToApp2-master\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\24.0.0\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="e70f608219ed6b974644c333249ab2bb7b71de98">
+        <dex dex="E:\Current Programming Projects\SimpleToApp2-master\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-animated-vector-drawable-24.0.0_8cb6b29627ce24b92675a5995e56f0aad9cf912d\classes.dex" />
+    </item>
+    <item
+        jar="E:\Current Programming Projects\SimpleToApp2-master\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-safetynet\9.2.0\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="a0712565a784bedd07ada2393c95e0b1e288840f">
+        <dex dex="E:\Current Programming Projects\SimpleToApp2-master\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-safetynet-9.2.0_90e5296618ed53a49aa7b6ddcdc087532f74cc74\classes.dex" />
+    </item>
+    <item
+        jar="E:\Current Programming Projects\SimpleToApp2-master\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-nearby\9.2.0\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="404f4108b41050173f93836f5b35efdd9525a0ad">
+        <dex dex="E:\Current Programming Projects\SimpleToApp2-master\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-nearby-9.2.0_10c7f56710b890b0167c57f338409352c241f788\classes.dex" />
+    </item>
+    <item
+        jar="E:\Current Programming Projects\SimpleToApp2-master\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-appinvite\9.2.0\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="5acfd484717d9175c175569a114d46dbeec074ed">
+        <dex dex="E:\Current Programming Projects\SimpleToApp2-master\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-appinvite-9.2.0_18c6b21d450821c1e995c72b7d20f6588cb5c038\classes.dex" />
+    </item>
+    <item
+        jar="E:\Current Programming Projects\SimpleToApp2-master\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-gcm\9.2.0\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="535d4497b5fa5d451e07a043e9e220d5c25ab7c7">
+        <dex dex="E:\Current Programming Projects\SimpleToApp2-master\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-gcm-9.2.0_58560fd766097d83902056f0b5d37763cc18dda3\classes.dex" />
+    </item>
+    <item
+        jar="E:\Current Programming Projects\SimpleToApp2-master\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-fitness\9.2.0\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="982031d2aa9652bc955d0b581ec70378c0adfc56">
+        <dex dex="E:\Current Programming Projects\SimpleToApp2-master\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-fitness-9.2.0_a924bfef44a4c0c16d5cb5dba28be05c09432cbb\classes.dex" />
+    </item>
+    <item
+        jar="E:\Current Programming Projects\SimpleToApp2-master\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-gass\9.2.0\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="1dc44c4798cbd79e95e4838a3fdc734c0e3f895f">
+        <dex dex="E:\Current Programming Projects\SimpleToApp2-master\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-gass-9.2.0_36f221de026f6033a223b80ee76fb55852123ba0\classes.dex" />
+    </item>
+    <item
+        jar="E:\Current Programming Projects\SimpleToApp2-master\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-drive\9.2.0\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="7c7c21cc7a45d5c2a57d77f4840d4d4ea3c7604f">
+        <dex dex="E:\Current Programming Projects\SimpleToApp2-master\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-drive-9.2.0_8b002169acd2430b96c2633d16538e98ed69dde4\classes.dex" />
+    </item>
+    <item
+        jar="E:\Current Programming Projects\SimpleToApp2-master\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="48b87cbdc1a244c4b48c3a2d1131c7d26cdfe736">
+        <dex dex="E:\Current Programming Projects\SimpleToApp2-master\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run-bootstrap_80b041b683b176ff52ccebe44a0e708c80190a31\classes.dex" />
+    </item>
+    <item
+        jar="E:\Current Programming Projects\SimpleToApp2-master\app\build\intermediates\exploded-aar\com.android.support\recyclerview-v7\24.0.0\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="894922f67adeaaef51f077a29e315da21a3382d3">
+        <dex dex="E:\Current Programming Projects\SimpleToApp2-master\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-recyclerview-v7-24.0.0_e9d470465aa04a0923ee7fdd4f0858d9d3ea891c\classes.dex" />
+    </item>
+    <item
+        jar="E:\Current Programming Projects\SimpleToApp2-master\app\build\intermediates\exploded-aar\com.google.firebase\firebase-database\9.2.0\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="d7572433ba21aa9e4624c819fa738b2748b82d05">
+        <dex dex="E:\Current Programming Projects\SimpleToApp2-master\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-database-9.2.0_cc1aab6f977366dd98acebb21c9a07739b7c5524\classes.dex" />
+    </item>
+    <item
+        jar="E:\Current Programming Projects\SimpleToApp2-master\app\build\intermediates\exploded-aar\com.android.support\mediarouter-v7\23.0.0\jars\libs\internal_impl-23.0.0.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="03d38bb042efe3e5ce27ba66b729a9523c36d8fe">
+        <dex dex="E:\Current Programming Projects\SimpleToApp2-master\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-23.0.0_871acaaee31b0b828f11c8d7317c43dae460f0d9\classes.dex" />
+    </item>
+    <item
+        jar="E:\Current Programming Projects\SimpleToApp2-master\app\build\intermediates\exploded-aar\com.google.firebase\firebase-config\9.2.0\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="ce9432b50a02be101bc491a1b38d3904200bd988">
+        <dex dex="E:\Current Programming Projects\SimpleToApp2-master\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-config-9.2.0_6834ea3f270a728cef3fd97251e1b18dcd4ad759\classes.dex" />
+    </item>
+    <item
+        jar="D:\Users\OrvilleClarke\AppData\Local\Android\Sdk\extras\android\m2repository\com\android\support\support-annotations\24.0.0\support-annotations-24.0.0.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="2943c74db6d4346ab8c6531adac91fa05c137c40">
+        <dex dex="E:\Current Programming Projects\SimpleToApp2-master\app\build\intermediates\transforms\dex\debug\folders\1000\10\support-annotations-24.0.0_6c2b27c73882d76761914a026e3504d245e547d0\classes.dex" />
+    </item>
+    <item
+        jar="E:\Current Programming Projects\SimpleToApp2-master\app\build\intermediates\exploded-aar\com.google.firebase\firebase-auth-common\9.2.0\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="44120508d7240c3e34a05957981a5c3c9b9f61aa">
+        <dex dex="E:\Current Programming Projects\SimpleToApp2-master\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-auth-common-9.2.0_b8335b42c734c513180295a0ca16a1bb37f29606\classes.dex" />
+    </item>
+    <item
+        jar="E:\Current Programming Projects\SimpleToApp2-master\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-tagmanager-api\9.2.0\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="74694bf98bd1f856cf478bd0c516531801badced">
+        <dex dex="E:\Current Programming Projects\SimpleToApp2-master\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-tagmanager-api-9.2.0_a6c86be4bdeedc95ba233684410fa7fb171964d3\classes.dex" />
+    </item>
+    <item
+        jar="E:\Current Programming Projects\SimpleToApp2-master\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-identity\9.2.0\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="7c39a4b431976abc46d3cf6344c75d06c769cd35">
+        <dex dex="E:\Current Programming Projects\SimpleToApp2-master\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-identity-9.2.0_216a79b36a16803bffdf2fb7a34a0aaa5e8a5a95\classes.dex" />
+    </item>
+    <item
+        jar="E:\Current Programming Projects\SimpleToApp2-master\app\build\intermediates\exploded-aar\com.google.firebase\firebase-crash\9.2.0\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="0595e77431edaba6793410f9bfa3603c063c58e7">
+        <dex dex="E:\Current Programming Projects\SimpleToApp2-master\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-crash-9.2.0_ad178b0565e1a260a5794c2db58bb8dfcc5b43ee\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\Orville Clarke\.gradle\caches\modules-2\files-2.1\org.apache.commons\commons-lang3\3.4\5fe28b9518e58819180a43a850fbc0dd24b7c050\commons-lang3-3.4.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="5fe28b9518e58819180a43a850fbc0dd24b7c050">
+        <dex dex="E:\Current Programming Projects\SimpleToApp2-master\app\build\intermediates\transforms\dex\debug\folders\1000\10\commons-lang3-3.4_4a9bdb57ef3e63e04aa3bf26c4eadaf2c0635eb8\classes.dex" />
+    </item>
+    <item
+        jar="E:\Current Programming Projects\SimpleToApp2-master\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-analytics-impl\9.2.0\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="7428f0d1debdcf1b5792a26146e51a38d992d04d">
+        <dex dex="E:\Current Programming Projects\SimpleToApp2-master\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-analytics-impl-9.2.0_af44a827c1281e24add4c92d0be4c7ef580731d2\classes.dex" />
+    </item>
+    <item
+        jar="E:\Current Programming Projects\SimpleToApp2-master\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-wearable\9.2.0\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="08cdd337d1d9247eb915f0ab365624dd7966e7fa">
+        <dex dex="E:\Current Programming Projects\SimpleToApp2-master\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-wearable-9.2.0_ded0fee6ed81394418605df365a6d4b8b69dd4ec\classes.dex" />
+    </item>
+    <item
+        jar="E:\Current Programming Projects\SimpleToApp2-master\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-vision\9.2.0\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="3c8fcebabb73df25937704f5566bf6c388ea941d">
+        <dex dex="E:\Current Programming Projects\SimpleToApp2-master\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-vision-9.2.0_536c69921a17541c5d97e7659d349449e5d33dea\classes.dex" />
+    </item>
+    <item
+        jar="E:\Current Programming Projects\SimpleToApp2-master\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\24.0.0\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="3bd97cfefd783e9de1dd1c30574a6adb44b4409b">
+        <dex dex="E:\Current Programming Projects\SimpleToApp2-master\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-vector-drawable-24.0.0_a9cb3ff63dc71769a74d32e08abec946f1c38921\classes.dex" />
+    </item>
+    <item
+        jar="E:\Current Programming Projects\SimpleToApp2-master\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-location\9.2.0\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="a03f4d605b0f29222c2ddf8b7896258cb4b92def">
+        <dex dex="E:\Current Programming Projects\SimpleToApp2-master\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-location-9.2.0_f854869fc591275892f3b07b92e1d2b9d2a7e163\classes.dex" />
+    </item>
+    <item
+        jar="E:\Current Programming Projects\SimpleToApp2-master\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-auth-base\9.2.0\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="f315c6b5b99081f16a79c9aaa557328a4644fe63">
+        <dex dex="E:\Current Programming Projects\SimpleToApp2-master\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-auth-base-9.2.0_c887fcd8de8f4acb96959ed91b3cc11201b6690b\classes.dex" />
+    </item>
+
+</items>
